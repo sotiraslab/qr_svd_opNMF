@@ -17,16 +17,17 @@ This code was tested on Linux (__Rocky Linux release 8.8__) operating system usi
 
 ## Quick Start
 
-1. You will need to prepare a nonnegative input data matrix in hdf5 compressed format with `.mat` extension, saved with variable name `X`.
+1. You will need to prepare a __nonnegative__ input data matrix in hdf5 compressed format with `.mat` extension, saved with variable name `X`.
 1. For example, you can create a random data matrix of size of size 5000 by 1000, save it to a `input.mat` file, using the following python snippet.
     ```
     import numpy as np
     import hdf5storage
 
-    X = np.random.rand(5000, 1000)
+    X = np.abs(np.random.rand(5000, 1000))
     hdf5storage.savemat("./input.mat", mdict = {"X": X})
     ```
-1. Note that unlike [brainparts github repository](https://github.com/asotiras/brainparts) implementation that has additional preprocessing to remove common zero pixels/voxels across all columns and to downsample the `X` matrix prior to multiplicative updates, this implementation does NOT have such preprocessing. The appropriate preprocessing and downsampling is left to the end user to carry out prior to calling this code snippet.
+    1. Note that unlike [brainparts github repository](https://github.com/asotiras/brainparts) implementation that has additional preprocessing to remove common zero pixels/voxels across all columns and to downsample the `X` matrix prior to multiplicative updates, this implementation does NOT have such preprocessing. The appropriate preprocessing and downsampling is left to the end user to carry out prior to calling this code snippet.
+    1. Also note that the input data matrix `X` has to be __non-negative__!
 1. Determine how many components you want to generate? We will call this value target rank. Default is $20$.
 1. Determine how many iterations to run before terminating the multiplicative updates. Default is $1.0 \times 10^4$.
 1. Determine what early stopping criterion threshold to use such that if $` {(\| {W}_{t+1} - {W}_{t} \|)}^{2}_{F} `$ / $` {(\| W_{t+1} \|)}^{2}_{F} `$ $` < tol `$.
