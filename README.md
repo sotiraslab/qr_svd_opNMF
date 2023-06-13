@@ -30,7 +30,7 @@ This code was tested on Linux (__Rocky Linux release 8.8__) operating system usi
     1. Also note that the input data matrix `X` has to be __non-negative__!
 1. Determine how many components you want to generate? We will call this value target rank. Default is $20$.
 1. Determine how many iterations to run before terminating the multiplicative updates. Default is $1.0 \times 10^4$.
-1. Determine what early stopping criterion threshold to use such that if $` {(\| {W}_{t+1} - {W}_{t} \|)}^{2}_{F} `$ / $` {(\| W_{t+1} \|)}^{2}_{F} `$ $` < tol `$.
+1. Determine what early stopping criterion threshold to use such that if $` \frac{{(\| {W}_{t+1} - {W}_{t} \|)}^{2}_{F} }{ {(\| W_{t+1} \|)}^{2}_{F} } < tol `$.
     * If the condition is met, the update will terminate. Default is $1.0 \times 10^{-6}$.
 1. Determine how you want your initial component matrix $W$ to be intialized. Default is to use [nndsvd](https://doi.org/10.1016/j.patcog.2007.09.010).
 1. Determine where the outputs will be generated.
