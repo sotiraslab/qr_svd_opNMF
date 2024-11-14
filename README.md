@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/5617aec6-f3de-4882-843d-13772ab916cb)
+
 # [Scalable NMF via linearly optimized data compression](https://doi.org/10.1117/12.2654282)
 
 ## Introduction
